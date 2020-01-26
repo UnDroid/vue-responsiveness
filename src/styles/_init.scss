@@ -1,0 +1,75 @@
+@include normalize();
+
+html {
+  font-size: 8px;
+  @include rsp(dtp) {
+    font-size: 8.5px;
+  }
+  @include rsp(fhd) {
+    font-size: 10px;
+  }
+  @include rsp(qhd) {
+    font-size: 10.6667px;
+  }
+  @include rsp(uhd, from) {
+    font-size: 12px;
+  }
+}
+
+html, body {
+  background: $white;
+}
+
+body {
+  color: $carbon;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @include typo-weight-semibold;
+}
+
+a {
+  color: $salt-spray;
+  text-decoration: none;
+  transition: color .25s cubic-bezier(0, 0, .2, 1);
+  &:hover {
+    color: $palomino-gold;
+  }
+}
+
+ul, ol, menu, dir {
+  list-style: none;
+  li {
+    position: relative;
+    &:before {
+      color: $salt-spray;
+      position: absolute;
+      top: 0;
+    }
+  }
+}
+
+ul, menu, dir {
+  li {
+    &:before {
+      content: "\2022";
+      font-size: 1.6em;
+      @include typo-weight-semibold;
+      left: -.8 * $indent-amount;
+    }
+  }
+}
+
+ol {
+  counter-reset: item;
+  li {
+    &:before {
+      content: counter(item) ".";
+      counter-increment: item;
+      @include typo-weight-bold;
+      left: -1 * $indent-amount;
+    }
+  }
+}

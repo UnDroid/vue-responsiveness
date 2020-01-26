@@ -1,0 +1,41 @@
+$white: #fff;
+$carbon: #333;
+$steel-wool: #777;
+$argent: #888;
+$basalt-grey: #999;
+$dhūsar-grey: #aaa;
+$gravel-fint: #bbb;
+$cerebral-grey: #ccc;
+$super-silver: #eee;
+$usc-cardinal: #990010;
+$usc-gold: #fc0;
+$palomino-gold: #daae00;
+$warp-drive: #eaf2f1;
+
+// $aragon-green: #47ba87;
+// $navagio-bay: #3183a0;
+
+$salt-spray: #a7c5ce;
+$light-salt-spray: #bbd3da;
+
+$sky-chase: #a5cad1;
+$light-sky-chase: #bad7dc;
+
+$opensans: 'Open Sans', Verdana, Tahoma, Arial, sans-serif;
+$opensanscondensed: 'Open Sans Condensed', 'Arial Narrow', 'Gill Sans', sans-serif;
+$lato: 'Lato', 'Lucida Grande', Tahoma, Sans-Serif;
+$consolas: 'Consolas', 'Lucida Console', Monaco, monospace;
+
+$base-font-family: $opensans;
+$base-font-size: 2.25rem;
+$base-line-height: 2.75rem;
+
+@import "~styles/normalize";
+@include normalize();
+
+// $transition-func: cubic-bezier(0.55, 0.15, 0.75, 0.3);
+// $transition-func: cubic-bezier(0.15, 0.55, 0.3, 0.75);
+$transition-func: ease;
+
+@import "~styles/typo";
+@import "~styles/responsivness";

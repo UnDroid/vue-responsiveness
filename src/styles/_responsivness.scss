@@ -1,0 +1,47 @@
+$zones: (
+    vpn: ( max: 479 ),
+    hpn: ( min: 480, max: 767 ),
+    apn: ( max: 767 ),
+    vpd: ( min: 768, max: 895 ),
+    hpd: ( min: 896, max: 1024 ),
+    apd: ( min: 768, max: 1024 ),
+    mbl: ( max: 1024 ),
+    ltp: ( min: 1025, max: 1199 ),
+    dtp: ( min: 1200, max: 1919 ),
+    fhd: ( min: 1920, max: 2559 ),
+    qhd: ( min: 2560, max: 3839 ),
+    uhd: ( min: 3840 )
+) !default;
+
+@mixin rsp($zone, $type: in, $zones: $zones) {
+    $zone-data: map-get($zones, $zone);
+    @if $zone-data == null {
+        @error "Region name '#{$zone}' doesn't exists. Available names: #{map-keys($zones)}.";
+    }
+    $types: (in, to, from);
+    @if index($types, $type) == null {
+        @error "Type '#{$type}' is invalid. Available types: #{$types}.";
+    }
+    @if $type == in {
+        @if map-get($zone-data, min) == null {
+            @media (max-width: #{map-get($zone-data, max)}px) { @content; }
+        }
+        @else if map-get($zone-data, max) == null {
+            @media (min-width: #{map-get($zone-data, min)}px) { @content; }
+        }
+        @else {
+            @media (min-width: #{map-get($zone-data, min)}px) and (max-width: #{map-get($zone-data, max)}px) { @content; }
+        }
+    }
+    @else {
+        @if $type == to and map-get($zone-data, max) != null {
+            @media (max-width: #{map-get($zone-data, max)}px) { @content; }
+        }
+        @else if $type == from and map-get($zone-data, min) != null {
+            @media (min-width: #{map-get($zone-data, min)}px) { @content; }
+        }
+        @else {
+            @content;
+        }
+    }
+}

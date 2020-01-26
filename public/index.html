@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>vue-responsiveness</title>
+    <script type="text/javascript">
+      var rootElement = document.querySelectorAll('html')[0]; function adjust(e) {
+        var fontSize = 10, baseWidth = 1920, sizeRange = 2;
+        if(window.matchMedia('(max-width: 960px)').matches) {
+          fontSize = fontSize - sizeRange;
+        } else if(
+          window.matchMedia('(min-width: 961px)').matches &&
+          window.matchMedia('(max-width: 1920px)').matches
+        ) {
+          fontSize = fontSize - (baseWidth - window.innerWidth) * sizeRange / (baseWidth / 2)
+        } else if(
+          window.matchMedia('(min-width: 1921px)').matches &&
+          window.matchMedia('(max-width: 3839px)').matches
+        ) {
+          fontSize = fontSize + (window.innerWidth - baseWidth) * sizeRange / baseWidth
+        } else if(window.matchMedia('(min-width: 3840px)').matches) {
+          fontSize = fontSize + sizeRange;
+        }
+        rootElement.style.fontSize = fontSize + 'px';
+      }
+      adjust();
+      if(document.readyState === "complete") { adjust(); } else { document.addEventListener("DOMContentLoaded", adjust, false); }
+      if(window.attachEvent) { window.attachEvent('onload', adjust); } else if(window.addEventListener) { window.addEventListener('load', adjust); }
+      if(window.attachEvent) { window.attachEvent('onresize', adjust); } else if(window.addEventListener) { window.addEventListener('resize', adjust, { passive: true }); }
+    </script>
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Lato:700|Open+Sans+Condensed:700|Open+Sans:400,400i,600,700,300,800&subset=cyrillic" as="style">
+    <link href="https://fonts.googleapis.com/css?family=Lato:700|Open+Sans+Condensed:700|Open+Sans:400,400i,600,700,300,800&subset=cyrillic" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but vue-responsiveness doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

@@ -1,0 +1,39 @@
+// 300,400,400i,600,700
+
+// Weights
+@mixin typo-weight-light { font-weight: 300; }
+@mixin typo-weight-normal { font-weight: 400; }
+@mixin typo-weight-semibold { font-weight: 600; }
+@mixin typo-weight-bold { font-weight: 700; }
+
+// Styles
+@mixin typo-style-italic { font-style: oblique; }
+
+// Main
+@mixin typo-regular {
+    // font-family: $base-font-family;
+    @include typo-weight-normal;
+}
+
+@mixin typo-regular-italic {
+    // font-family: $base-font-family;
+    @include typo-weight-normal;
+    @include typo-style-italic;
+}
+
+@mixin typo-regular-semibold {
+    // font-family: $base-font-family;
+    @include typo-weight-semibold;
+}
+
+@mixin typo-regular-bold {
+    // font-family: $base-font-family;
+    @include typo-weight-bold;
+}
+
+// Shortcuts
+
+@mixin typo-headline {
+    @include typo-regular-semibold;
+    font-size: $h2-font-size;
+}
