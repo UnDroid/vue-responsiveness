@@ -1,28 +1,19 @@
-# vue-responsiveness
+<p align="center"><a href="https://responsiveness.undroid.com" target="_blank" rel="noopener noreferrer"><img width="100" src="https://responsiveness.undroid.com/img/logo.svg" alt="vue-responsiveness logo"></a></p>
+<h1 align="center">vue-responsiveness demo</h1>
 
 ## Project setup
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+yarn run serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
+yarn run build
 ```
 
 ### Customize configuration
