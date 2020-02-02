@@ -1,1 +1,2 @@
-src/styles/normalize/*.scss  -linguist-detectable
+src/styles/_normalize.scss linguist-vendored
+src/styles/normalize/*.scss linguist-vendored
